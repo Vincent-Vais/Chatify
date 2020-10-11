@@ -1,7 +1,7 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBkVQL-JAzsKsaVq-RoOjUMGAAru92E4B8",
+  apiKey: `${process.env.REACT_APP_KEY}`,
   authDomain: "facebook-messanger-clone-120ce.firebaseapp.com",
   databaseURL: "https://facebook-messanger-clone-120ce.firebaseio.com",
   projectId: "facebook-messanger-clone-120ce",
