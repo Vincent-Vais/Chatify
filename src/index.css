@@ -1,3 +1,4 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -8,12 +9,64 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
 button {
   border: none;
   outline: none;
   background-color: transparent;
 }
 
+ul,
+li {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
+}
+
+/* Page */
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ChannelInfo component */
+
+.online {
+  position: relative;
+}
+
+.online::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-250%, -50%);
+  background-color: #2ed573;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.offline {
+  position: relative;
+}
+
+.offline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-250%, -50%);
+  background-color: #a4b0be;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
 }

@@ -1,21 +1,23 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { convertHexToRgba } from "../../utils";
+import { convertHexToRgba, getContrastText } from "../../utils";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    backgroundColor: convertHexToRgba(theme.palette.secondary.main, 0.9, 0.1),
-    width: "60vw",
-    minHeight: "60vh",
+  form: {
+    width: "100%",
     display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    padding: "0 2rem",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  control: {
+    flex: "1 2 80%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexDirection: "row",
   },
   inputText: {
-    flex: "1 2 100%",
+    flex: "1 2 65%",
     marginRight: "1rem",
-    padding: "0.5rem",
     borderBottom: `1px solid ${theme.palette.info.light}`,
     fontSize: "2rem",
     "&.MuiInput-underline:hover:not(.Mui-disabled):before": {
@@ -33,14 +35,16 @@ const useStyles = makeStyles((theme) => ({
     },
     color: `${theme.palette.secondary.contrastText}`,
   },
-  form: {
-    width: "100%",
-    marginBottom: "2rem",
-  },
-  list: {
-    width: "25%",
-    height: "100%",
-    marginBottom: "2rem",
+  inputBtn: {
+    flex: "1 1 35%",
+    fontSize: "2rem",
+    backgroundColor: `${theme.palette.info.main}`,
+    color: `${theme.palette.secondary.contrastText}`,
+    "&.MuiButton-contained.Mui-disabled": {
+      backgroundColor: `${getContrastText(theme.palette.info.light, 1)}`,
+      color: `${theme.palette.primary.contrastText}`,
+      opacity: 0.8,
+    },
   },
   label: {
     "&.MuiFormLabel-root.Mui-focused": {

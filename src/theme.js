@@ -16,13 +16,8 @@ const theme = createMuiTheme({
       main: "#ff6b81",
     },
     success: {
-      main: "#2ed573",
-    },
-    messageIn: {
       main: "#e9e9eb",
-    },
-    messageOut: {
-      main: "#2ed573",
+      light: "#f5f6fa",
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -37,6 +32,9 @@ const theme = createMuiTheme({
     },
     h3: {
       fontSize: "2.5rem",
+    },
+    h4: {
+      fontSize: "2rem",
     },
   },
 });

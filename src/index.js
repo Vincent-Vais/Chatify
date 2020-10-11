@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-import theme from "./theme";
-import { ThemeProvider } from "@material-ui/core";
+import App from "./components";
+// import theme from "./theme";
 import { BrowserRouter as Router } from "react-router-dom";
+import store from "./store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <Router>
-    <ThemeProvider theme={theme}>
+  <Provider store={store}>
+    <Router>
       <App />
-    </ThemeProvider>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );
