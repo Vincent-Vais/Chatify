@@ -9,7 +9,10 @@ const Form = ({ createUser, styledForm }) => {
 
   return (
     <form className={(classes.form, styledForm)} onSubmit={createUser}>
-      <FormControl className={classes.control}>
+      <FormControl
+        className={classes.control}
+        style={{ display: "flex", flexDirection: "row" }}
+      >
         <InputLabel htmlFor="message-input" className={classes.label}>
           Please enter your nickname to continue
         </InputLabel>

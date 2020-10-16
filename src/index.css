@@ -71,6 +71,11 @@ a {
   border-radius: 50%;
 }
 
+.MuiFormControl-root {
+  display: flex;
+  flex-direction: row;
+}
+
 @media only screen and (max-width: 800px) {
   html {
     font-size: 55%;

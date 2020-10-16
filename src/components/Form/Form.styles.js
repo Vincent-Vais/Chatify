@@ -10,10 +10,10 @@ const useStyles = makeStyles((theme) => ({
   },
   control: {
     flex: "1 2 80%",
-    display: "flex",
+    display: "flex!important",
     justifyContent: "space-between",
-    alignItems: "center",
-    flexDirection: "row",
+    alignItems: "center!important",
+    flexDirection: "row!important",
   },
   inputText: {
     flex: "1 2 65%",
