@@ -12,12 +12,15 @@ import Channel from "./Channel/Channel.component";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { getChannelsFromSnap } from "../../store/channels/actions";
 import { selectChannels } from "../../store/channels/selectors";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const Channels = () => {
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(null);
   const channels = useSelector(selectChannels, shallowEqual);
   const dispatch = useDispatch();
+
+  const smallQuery = useMediaQuery("(max-width:800px)");
 
   const classes = useStyles();
 
@@ -30,7 +33,7 @@ const Channels = () => {
   const toggleOpen = (id) => setOpen(id);
 
   return (
-    <Paper className={classes.container}>
+    <Paper className={smallQuery ? classes.containerMobile : classes.container}>
       <FormControl className={classes.form}>
         <InputLabel htmlFor="message-input" className={classes.label}>
           United States

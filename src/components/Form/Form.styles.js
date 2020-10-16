@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   control: {
-    flex: "1 2 80%",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",

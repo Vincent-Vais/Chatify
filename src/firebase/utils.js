@@ -2,7 +2,6 @@ import { db } from "./index";
 
 // USER
 export const changeOnline = (id, status) => {
-  console.log(status);
   return new Promise((resolve, reject) => {
     db.doc(`users/${id}`)
       .update({ online: status })

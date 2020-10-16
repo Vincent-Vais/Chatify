@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import useStyles from "./Form.styles";
 import { Button, Input, InputLabel, FormControl } from "@material-ui/core";
 
-const Form = ({ createUser }) => {
+const Form = ({ createUser, styledForm }) => {
   const [input, setInput] = useState("");
 
   const classes = useStyles();
 
   return (
-    <form className={classes.form} onSubmit={createUser}>
+    <form className={(classes.form, styledForm)} onSubmit={createUser}>
       <FormControl className={classes.control}>
         <InputLabel htmlFor="message-input" className={classes.label}>
           Please enter your nickname to continue

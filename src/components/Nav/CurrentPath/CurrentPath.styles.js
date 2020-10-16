@@ -10,8 +10,13 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
   currentPath: {
-    flex: "1 1 25%",
+    flex: "0 0 25%",
     justifyContent: "center",
+    paddingLeft: "5vw",
+  },
+  currentPathMobile: {
+    flex: "0 0 50%",
+    justifyContent: "flex-start",
     paddingLeft: "5vw",
   },
 }));

@@ -8,15 +8,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "flex-start",
     justifyContent: "center",
     width: "100%",
-    borderRight: `2px solid ${convertHexToRgba(
-      theme.palette.secondary.contrastText,
-      0.65
-    )}`,
   },
   dashboard__item: {
     color: convertHexToRgba(theme.palette.secondary.contrastText, 0.65),
     fontWeight: 400,
-    fontSize: "3rem",
+    fontSize: "2.5rem",
     marginBottom: "2rem",
   },
 }));

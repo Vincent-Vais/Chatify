@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { convertHexToRgba } from "../../../utils";
 
 const useStyles = makeStyles((theme) => ({
   item: {
@@ -27,7 +28,21 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    padding: "0 2rem",
+    boxShadow: "none",
+  },
+  cardMobile: {
+    backgroundColor: "transparent",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    transform: "translate(40%, 0)",
+    zIndex: "10",
+    width: "60vw",
+    height: "45vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
     boxShadow: "none",
   },
   card__content: {
@@ -35,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     display: "flex",
     flexDirection: "column",
+    padding: 0,
   },
   header: {
     color: theme.palette.secondary.ContrastText,
@@ -42,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
     height: "10%",
   },
   main: {
-    height: "90%",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
@@ -56,6 +71,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     flex: "1 1 50%",
     height: "100%",
+    "&:last-child": {
+      borderLeft: `2px solid ${convertHexToRgba(
+        theme.palette.secondary.contrastText,
+        0.65
+      )}`,
+    },
   },
   main__btnBlock: {
     width: "100%",

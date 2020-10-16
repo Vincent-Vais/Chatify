@@ -5,10 +5,12 @@ import { Typography } from "@material-ui/core";
 import { useSelector, shallowEqual } from "react-redux";
 import { selectUser } from "../../store/user/selectors";
 import useStyles from "./Nav.styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const Nav = () => {
   const user = useSelector(selectUser, shallowEqual);
   const username = user ? user.name : "";
+  const bigQuery = useMediaQuery("(max-width:1300px)");
 
   const classes = useStyles();
 
@@ -16,7 +18,7 @@ const Nav = () => {
     <div className={classes.nav}>
       <CurrentPath />
       <Typography variant="h1" className={classes.hero}>
-        {username && (
+        {username && !bigQuery && (
           <span>
             Hello <span className={classes.hero__colored}>@ </span>
             {username}

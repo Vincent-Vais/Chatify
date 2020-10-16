@@ -7,10 +7,25 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     flex: "1 1 25%",
   },
+  menuMobile: {
+    flex: "0 0 50%",
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
   menu__btn: {
     color: theme.palette.info.ContrastText,
     backgroundColor: theme.palette.info.main,
     fontWeight: 700,
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: theme.palette.info.dark,
+    },
+  },
+  menu__btnMobile: {
+    color: theme.palette.info.ContrastText,
+    backgroundColor: theme.palette.info.main,
+    fontWeight: 700,
+    marginLeft: "50%",
     cursor: "pointer",
     "&:hover": {
       backgroundColor: theme.palette.info.dark,

@@ -12,6 +12,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "flex-start",
     padding: "0 2rem",
   },
+  containerMobile: {
+    backgroundColor: convertHexToRgba(theme.palette.secondary.main, 0.9, 0.1),
+    width: "95vw",
+    minHeight: "60vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    padding: "0 2rem",
+  },
   inputText: {
     flex: "1 2 100%",
     marginRight: "1rem",

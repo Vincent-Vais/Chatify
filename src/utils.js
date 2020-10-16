@@ -52,3 +52,97 @@ const getColorChannels = (arr) => {
 };
 
 const hexToRgb = (hex) => parseInt(hex.join(""), 16);
+
+// const NUM_USERS = 10;
+// let channels = [
+//   "USA",
+//   "China",
+//   "Australia",
+//   "Russia",
+//   "France",
+//   "Italy",
+//   "Japan",
+//   "New Zeland",
+//   "Spain",
+//   "Germany",
+// ];
+
+// export const seedDB = async (db, firebase) => {
+//   let users = [];
+//   for (let i = 0; i < NUM_USERS; i++) {
+//     try {
+//       const name = await getRandomName();
+//       const user = { name, online: false };
+//       const snap = await db.collection("users").add(user);
+//       users.push({ [snap.id]: { ...user, id: snap.id } });
+//     } catch (e) {
+//       throw new Error(e);
+//     }
+//   }
+//   for (let channel of channels) {
+//     const channelUsers = getRandomUsers(users);
+//     const channelDoc = {
+//       name: channel,
+//       users: channelUsers.map((user) => {
+//         const [userObj] = Object.values(user);
+//         return userObj.id;
+//       }),
+//     };
+//     const snap = await db.collection("channels").add(channelDoc);
+//     const NUM_MESSAGES = Math.floor(Math.random() * 10);
+//     for (let i = 0; i < NUM_MESSAGES; i++) {
+//       const mesResp = await fetch(
+//         `https://baconipsum.com/api/?type=all-meat&sentences=1&start-with-lorem=1`
+//       );
+//       const arr = await mesResp.json();
+//       const messages = [];
+//       for (let item of arr) {
+//         const splittedItem = item.split(" ");
+//         let i = 0;
+//         while (i < splittedItem.length) {
+//           const j = Math.floor(Math.random() * 3) + 1;
+//           messages.push(
+//             splittedItem
+//               .slice(i, i + j)
+//               .join(" ")
+//               .replace(/\.|,/g, "")
+//           );
+//           i += j;
+//         }
+//       }
+//       const userObj = channelUsers[random(channelUsers)];
+//       const [user] = Object.values(userObj);
+//       const username = user.name;
+//       for (let message of messages) {
+//         console.log(snap.id);
+//         await db.collection(`channels/${snap.id}/messages`).add({
+//           text: message,
+//           username,
+//           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+//         });
+//       }
+//     }
+//   }
+//   return users;
+// };
+
+// const getRandomName = async () => {
+//   try {
+//     const res = await fetch("https://randomuser.me/api/");
+//     const data = await res.json();
+//     return data.results[0].login.username;
+//   } catch (e) {
+//     throw new Error(e);
+//   }
+// };
+
+// const getRandomUsers = (arr) => {
+//   const users = [];
+//   const len = random(arr);
+//   for (let i = 0; i <= len; i++) {
+//     users.push(arr[random(arr)]);
+//   }
+//   return users;
+// };
+
+// const random = (arr) => Math.floor(Math.random() * arr.length);

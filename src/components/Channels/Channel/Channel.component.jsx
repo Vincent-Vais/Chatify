@@ -15,6 +15,7 @@ import { setChannel } from "../../../store/channels/actions";
 import { useHistory, useLocation } from "react-router-dom";
 import Stats from "./Stats/Stats.component";
 import Users from "./Users/Users.component";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const Channel = ({ channel, open, toggleOpen }) => {
   const history = useHistory();
@@ -29,6 +30,9 @@ const Channel = ({ channel, open, toggleOpen }) => {
   const [channelUsers, setChannelUsers] = useState([]);
 
   const classes = useStyles();
+
+  const bigQuery = useMediaQuery("(max-width:1250px)");
+  const smallQuery = useMediaQuery("(max-width:800px)");
 
   useEffect(() => {
     setChannelUsers(
@@ -54,29 +58,55 @@ const Channel = ({ channel, open, toggleOpen }) => {
         {name}
       </MenuItem>
       {open === id && (
-        <Card className={classes.card}>
+        <Card className={smallQuery ? classes.cardMobile : classes.card}>
           <CardContent className={classes.card__content}>
             <Typography as="h4" variant="h4" className={classes.header}>
               Location: <span style={{ fontWeight: 400 }}>{name}</span>
             </Typography>
-            <Box className={classes.main}>
-              <Box className={classes.main__block} style={{ flex: "1 1 60%" }}>
-                <Stats channelId={id} />
+            {!bigQuery ? (
+              <Box className={classes.main}>
+                <Box
+                  className={classes.main__block}
+                  style={{ flex: "1 1 50%" }}
+                >
+                  <Stats channelId={id} />
+                  <Button
+                    size="small"
+                    onClick={handleClick}
+                    className={classes.main__btnBlock}
+                  >
+                    Go to channel
+                  </Button>
+                </Box>
+                <Box
+                  className={classes.main__block}
+                  style={{ flex: "1 1 50%", overflowY: "scroll" }}
+                >
+                  <Users channelUsers={channelUsers} />
+                </Box>
+              </Box>
+            ) : (
+              <Box className={classes.main}>
+                <Box
+                  className={classes.main__block}
+                  style={{
+                    flex: "1 1 100%",
+                    overflowY: "scroll",
+                    height: "70%",
+                  }}
+                >
+                  <Users channelUsers={channelUsers} />
+                </Box>
                 <Button
                   size="small"
                   onClick={handleClick}
                   className={classes.main__btnBlock}
+                  style={{ marginTop: "1rem" }}
                 >
                   Go to channel
                 </Button>
               </Box>
-              <Box
-                className={classes.main__block}
-                style={{ flex: "1 1 40%", overflowY: "scroll" }}
-              >
-                <Users channelUsers={channelUsers} />
-              </Box>
-            </Box>
+            )}
           </CardContent>
         </Card>
       )}

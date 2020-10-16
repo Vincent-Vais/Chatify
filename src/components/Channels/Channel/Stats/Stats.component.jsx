@@ -8,13 +8,20 @@ const Stats = ({ channelId }) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    db.doc(`channels/${channelId}`).onSnapshot((snap) => {
+    const channelsOff = db.doc(`channels/${channelId}`).onSnapshot((snap) => {
       setUsers(snap.data().users.length);
     });
 
-    db.collection(`channels/${channelId}/messages`).onSnapshot((snap) => {
-      setMessages(snap.docs.length);
-    });
+    const messagesOff = db
+      .collection(`channels/${channelId}/messages`)
+      .onSnapshot((snap) => {
+        setMessages(snap.docs.length);
+      });
+
+    return () => {
+      channelsOff();
+      messagesOff();
+    };
   }, [channelId]);
 
   const classes = useStyles();
